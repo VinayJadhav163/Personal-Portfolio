@@ -65,6 +65,7 @@ To run the portfolio locally:
 ```bash
 git clone https://github.com/VinayJadhav163/Personal-Portfolio.git
 cd Personal-Portfolio
+```
 
 ---
 
