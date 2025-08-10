@@ -85,7 +85,7 @@ span {
 
 /* Navbar link styles: font size, margin, transition, and initial bottom border */
 .navbar a {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-left: 1rem;
   transition: 0.2s ease-in-out;
   border-bottom: 2px solid transparent;
@@ -187,7 +187,7 @@ section {
 
 /* Home content paragraph styles: font size, text alignment, margin, and line height */
 .home-content p {
-  font-size: 20.8px;
+  font-size: 18.8px;
   text-align: justify;
   margin: 0.5rem 0;
   line-height: 1.5;
@@ -360,7 +360,7 @@ section {
 /* About content paragraph styles: color, font size, line height, margin, and text alignment */
 .about-content p {
   color: var(--text-color);
-  font-size: 1.3rem;
+  font-size: 18.8px;
   line-height: 1.6;
   margin-bottom: 1rem;
   text-align: justify;
