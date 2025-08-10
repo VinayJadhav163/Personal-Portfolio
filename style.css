@@ -332,10 +332,12 @@ section {
 /* About image styles: width, border-radius, margin, box-shadow, and transition */
 .about-image img {
   width: 17vw;
+  max-width: 400px;
   border-radius: 50%;
-  margin-left: -15rem;
+  margin: 0;               /* remove negative left */
   box-shadow: 0 0 25px var(--primary-color);
   transition: 0.3s ease-in-out;
+  display: block;         /* helps margin: auto centering */
 }
 
 /* About image hover effect: enhanced box-shadow */
@@ -648,17 +650,20 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* Media query for screens smaller than 1285px (e.g., larger tablets, small desktops) */
 @media (max-width: 1285px) {
+  .social-Links {
+    justify-content: center !important;
+  }
   /* Adjust logo font size */
   .logo {
     font-size: 1.5rem;
   }
   /* Show menu icon and position it */
   .menu-icon {
-    display: block;
-    margin-left: auto;
-    margin-right: 1rem;
-    font-size: 2rem;
-  }
+        display: block;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: #fff;
+    }
 
   /* Navbar: transform to column layout, position absolutely, adjust width, padding, background, border, z-index, and hide by default */
   .navbar {
@@ -769,34 +774,32 @@ input[type="number"]::-webkit-inner-spin-button {
     border-radius: 2rem;
     white-space: nowrap;
   }
-
-  /* About section: change to column-reverse layout, text alignment, and padding */
-  .about {
+  .about-container {
+    display: flex;
     flex-direction: column-reverse;
+    align-items: center;   /* center children horizontally */
     text-align: center;
-    padding-bottom: 10rem;
+    padding-bottom: 6rem;  /* reduce from 10rem if needed */
+    gap: 1.5rem;           /* smaller gap for mid screens */
   }
 
-  /* About content heading 2: text alignment and margin */
-  .about-content h2 {
-    text-align: center;
-    margin-top: 0;
+  .about-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  /* About content paragraph: adjust font size */
-  .about-content p{
-    font-size: 18px;
-  }
-
-  /* About image: adjust width, margin, max-width, and height */
   .about-image img {
     width: 40vw;
-    margin: 20px 10px;
     max-width: 400px;
+    margin: 3rem auto 0;   /* centered horizontally, remove negative left */
     height: auto;
-    margin-top: 4rem;
-    margin-bottom: -1rem;
   }
+
+  .about-content p{
+    width: 100%;
+  }
+
 
   /* Projects heading 2: adjust margin and color */
   .projects h2 {
@@ -833,6 +836,10 @@ input[type="number"]::-webkit-inner-spin-button {
     align-items: center;
     justify-content: center;
   }
+  .contact form .btn{
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 5rem; /* Keeps gap before footer/social icons */
+  }
 
   /* Footer: adjust positioning and padding */
   .footer {
@@ -868,15 +875,48 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* Media query for tablets (portrait and smaller, max-width: 768px) */
 @media (max-width: 768px) {
+
   /* Section padding adjustment */
   section {
     padding: 6rem 5%;
   }
-
-  /* Navbar margin reset */
-  .navbar {
-    margin-left: 0;
+  .social-Links {
+    justify-content: center !important;
   }
+
+  .menu-icon {
+        display: block;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: #fff;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+        background: #333;
+    }
 
   /* Home section: adjust gap and padding */
   .home {
@@ -932,7 +972,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
   /* Contact form button: adjust padding */
   .contact form .btn {
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 5rem; /* Keeps gap before footer/social icons */
   }
 
   /* Contact form: adjust gap */
@@ -948,51 +989,84 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* Media query for phones (landscape and smaller, max-width: 576px) */
 @media (max-width: 576px) {
-  /* Social links: force center justification */
-  .social-Links{
+  /* Social links: center */
+  .social-Links {
     justify-content: center !important;
   }
-  /* Image size on Phone */
-  .project-card img {
-  max-width: 380px;
-  max-height: fit-content;
-  border-radius: 1rem;
-  object-fit: cover;
-}
 
-  /* Contact section: fine-tune padding and margin */
+  /* Menu icon visible, aligned right */
+  .menu-icon {
+    display: block; /* Show on mobile */
+    margin-left: auto;
+    margin-right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  /* Project images */
+  .project-card img {
+    max-width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+
+  /* Contact section */
   .contact {
     padding-bottom: 1rem !important;
     margin-bottom: 0 !important;
   }
 
-  /* Contact form elements: remove bottom padding/margin */
-  .contact .contact form,
+  .contact form,
   .contact form .input-box,
   .contact form textarea {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
 
-  /* Contact form button: adjust padding */
-  .contact .contact form .btn{
+  .contact form .btn {
     padding: 0.5rem 1.5rem;
+    margin-bottom: 1.5rem; /* Keeps gap before footer/social icons */
   }
 
-  /* Footer: adjust margin-top and padding-top */
+  /* Footer adjustments */
   .footer {
     margin-top: 0 !important;
     padding-top: 1rem !important;
   }
 
-  /* Last section: remove bottom padding/margin */
+  /* Last section bottom spacing */
   section:last-of-type {
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
   }
 
-  /* Body: prevent horizontal overflow */
-   body {
+  /* Prevent horizontal scroll */
+  body {
     overflow-x: hidden;
+  }
+}
+/* Extra-small screens (very small devices, up to 400px) */
+@media (max-width: 400px) {
+  .project-card img {
+    max-width: 100%;
+    border-radius: 0.8rem;
+  }
+  .contact {
+    padding-bottom: 2rem;
+    
+  }
+
+  .contact form .btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+
+  .menu-icon {
+    font-size: 1.8rem;
+  }
+
+  .social-Links {
+    gap: 0.5rem; /* Reduce spacing for tiny screens */
   }
 }
