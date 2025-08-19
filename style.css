@@ -655,11 +655,10 @@ section {
   .btn-groups {
     justify-content: start;
   }
-  .social-Links a {
-  align-items: center  ;
-  justify-content: center;
-  
-}
+  .social-Links {
+    justify-content: center;
+    gap: 1rem;
+  }
   .about-image img {
     width: 50vw;
     margin-top: 2rem;
@@ -705,6 +704,10 @@ section {
   }
   .home-content {
     text-align: center;
+  }
+  .social-Links {
+    justify-content: center;
+    gap: 1rem;
   }
   .btn-groups {
     justify-content: center;
