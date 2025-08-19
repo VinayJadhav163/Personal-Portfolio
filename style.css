@@ -653,8 +653,13 @@ section {
     text-align: center;
   }
   .btn-groups {
-    justify-content: center;
+    justify-content: start;
   }
+  .social-Links a {
+  align-items: center  ;
+  justify-content: center;
+  
+}
   .about-image img {
     width: 50vw;
     margin-top: 2rem;
